@@ -2,7 +2,6 @@ import discord
 from discord.ext import commands
 import random
 import os
-from keep_alive import keep_alive
 
 # Get token from environment variables
 TOKEN = os.getenv("DISCORD_TOKEN")
@@ -270,14 +269,5 @@ async def roleid(ctx, *, role_name):
     else:
         await ctx.send(f"❌ Role '{role_name}' not found!")
 
-
-@bot.event
-async def on_error(event, *args, **kwargs):
-    import traceback
-    error_message = traceback.format_exc()
-    print(f"Error detected:\n{error_message}")
-
-
-keep_alive()
 
 bot.run(TOKEN)
